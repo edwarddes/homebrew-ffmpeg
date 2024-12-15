@@ -158,11 +158,9 @@ class FfmpegAT34 < Formula
     # the "--enable-nonfree" flag, which produces unredistributable libraries
     args << "--enable-nonfree" if build.with?("fdk-aac") || build.with?("openssl")
     
-    args << "--extra-cflags=\"-Wno-error=incompatible-function-pointer-types -Wno-int-conversion\""
-    
     system "./configure", *args
 
-    system "make", "install"
+    system "make", "install EXTRA_FF_OPTS='--extra-cflags=\"-Wno-error=incompatible-function-pointer-types -Wno-int-conversion\"'"
 
     if build.with? "tools"
       system "make", "alltools"

@@ -86,7 +86,7 @@ class FfmpegAT34 < Formula
 
   def install
     args = %W[
-      --extra-cflags="-Wno-error=incompatible-function-pointer-types -Wno-int-conversion"
+      --extra-cflags="-Wno-error=incompatible-function-pointer-types"
       --prefix=#{prefix}
       --enable-shared
       --enable-pthreads
